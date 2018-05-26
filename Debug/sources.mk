@@ -24,4 +24,16 @@ CPP_DEPS :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 src \
+resources \
+resources/objects/rock \
+resources/objects/planet \
+resources/objects/nanosuit \
+resources/objects/cyborg \
+resources/court \
+include/glm/detail \
+include/glad \
+include/Shader \
+include/Entity \
+include \
+. \
 

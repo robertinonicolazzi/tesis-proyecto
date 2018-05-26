@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := -lGL -lGLU -lglfw -lX11 -lXxf86vm -lXrandr -lXi
+LIBS := -lGL -ldl -lGLU -lglfw -lX11 -lXxf86vm -lXrandr -lXi -lassimp
 

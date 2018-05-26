@@ -9,6 +9,17 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include src/subdir.mk
+-include resources/objects/rock/subdir.mk
+-include resources/objects/planet/subdir.mk
+-include resources/objects/nanosuit/subdir.mk
+-include resources/objects/cyborg/subdir.mk
+-include resources/court/subdir.mk
+-include resources/subdir.mk
+-include include/glm/detail/subdir.mk
+-include include/glad/subdir.mk
+-include include/Shader/subdir.mk
+-include include/Entity/subdir.mk
+-include include/subdir.mk
 -include subdir.mk
 -include objects.mk
 
