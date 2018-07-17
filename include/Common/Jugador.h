@@ -8,6 +8,11 @@
 #ifndef JUGADOR_H_
 #define JUGADOR_H_
 #include <Shader/shader.h>
+#include <cstdlib>
+
+#include <sstream>
+#include <iostream>
+#include <fstream>
 class Jugador {
 private:
 	unsigned int VAO;
@@ -17,7 +22,8 @@ public:
 	Jugador();
 	virtual ~Jugador();
 	void Draw(Shader shader);
-	float vertices [144] = {};
+
+	float vertices [192] = {};
 };
 
 #endif /* JUGADOR_H_ */

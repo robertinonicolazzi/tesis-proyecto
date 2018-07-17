@@ -6,8 +6,9 @@
  */
 
 #include <Common/Jugador.h>
-
+using namespace std;
 Jugador::Jugador() {
+
 	// TODO Auto-generated constructor stub
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);
@@ -24,8 +25,8 @@ void Jugador::Draw(Shader shader){
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_DYNAMIC_DRAW);
 	glBindVertexArray(VAO);
-	glLineWidth(5.0f);
-	glDrawArrays(GL_LINES, 0, 36);
+	glLineWidth(3.0f);
+	glDrawArrays(GL_LINES, 0, 200);
 }
 Jugador::~Jugador() {
 	// TODO Auto-generated destructor stub
