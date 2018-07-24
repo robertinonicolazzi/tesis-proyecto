@@ -11,11 +11,11 @@
 #include <Common/Lugar.h>
 #include <Common/Jugador.h>
 #include <Shader/shader.h>
-#include "include/rapidjson/document.h"
-#include "include/rapidjson/istreamwrapper.h"
-#include "include/rapidjson/writer.h"
-#include "include/rapidjson/stringbuffer.h"
-#include "include/rapidjson/ostreamwrapper.h"
+#include <rapidjson/document.h>
+#include <rapidjson/istreamwrapper.h>
+#include <rapidjson/writer.h>
+#include <rapidjson/stringbuffer.h>
+#include <rapidjson/ostreamwrapper.h>
 const double maxFPS = 60.0;
 const double maxPeriod = 1.0 / maxFPS;
 class Partido {
@@ -31,7 +31,7 @@ public:
 	virtual ~Partido();
 	void DrawPlayers();
 	void DrawCourt();
-	void DrawAll(float delta);
+	void DrawAll();
 	void LoadPlayers(int frame);
 
 };

@@ -11,8 +11,8 @@ Partido::Partido() {
 	// TODO Auto-generated constructor stub
 	Shader temp("7.4.camera.vs", "7.4.camera.fs");
 	playerShader = temp;
-	Shader temp("resources/shaders/model_light.vs", "resources/shaders/model_light.fs");
-	courtShader = temp;
+	Shader temp2("resources/shaders/model_light.vs", "resources/shaders/model_light.fs");
+	courtShader = temp2;
 	Lugar court;
 }
 
@@ -31,16 +31,16 @@ void Partido::DrawCourt() {
 	courtShader.setVec3("objectColor", 1.0f, 0.5f, 0.31f);
 	courtShader.setVec3("lightColor",  1.0f, 1.0f, 1.0f);
 	courtShader.setVec3("lightPos", 1.0f, 2.0f, 10.0f);
-	courtShader.setMat4("projection", projection);
-	courtShader.setMat4("view", view);
+	//courtShader.setMat4("projection", projection);
+	//courtShader.setMat4("view", view);
 	courtShader.setMat4("model", model);
 	court.Draw(courtShader);
 }
 
 void Partido::DrawPlayers() {
 	playerShader.use();
-	playerShader.setMat4("projection", projection);
-	playerShader.setMat4("view", view);
+	//playerShader.setMat4("projection", projection);
+	//playerShader.setMat4("view", view);
 
 	glm::mat4 model=glm::mat4(1.0);
 	model = glm::translate(model, glm::vec3(0.0f,1.4f,12.0f));

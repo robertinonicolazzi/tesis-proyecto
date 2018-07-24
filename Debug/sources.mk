@@ -30,10 +30,12 @@ resources/objects/planet \
 resources/objects/nanosuit \
 resources/objects/cyborg \
 resources/court \
+resources/cancha \
 include/glm/detail \
 include/glad \
+include \
+include/Texture \
 include/Shader \
 include/Entity \
-include \
 . \
 

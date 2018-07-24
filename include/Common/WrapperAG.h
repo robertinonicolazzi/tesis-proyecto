@@ -7,31 +7,52 @@
 
 #ifndef WRAPPERAG_H_
 #define WRAPPERAG_H_
-#include <string>
-#include <opencv2/opencv.hpp>
-#include <opencv2/highgui/highgui.hpp>
-#include <aruco/markerdetector.h>
-
-using namespace std;
-using namespace cv;
-using namespace aruco;
+#define ARX_TARGET_PLATFORM_LINUX 1
+#include <ARX/ARController.h>
+#include <ARX/ARUtil/time.h>
+#include <ARX/ARG/mtx.h>
+#include "SDL2/SDL.h"
+#include "SDL2/SDL_opengl.h"
 
 class WrapperAG {
 
 private:
-	string st_InputPath;
-	string st_IntrinsicFilePath;
-	bool The3DInfoAvailable = false;
-	float TheMarkerSize = -1;
-	MarkerDetector markerDetector;
-	VideoCapture videoCapturer;
-	Marker marker;
-	Mat actualFrame;
-	Mat TheInputImage, TheUndInputImage, TheResizedImage;
-	CameraParameters TheCameraParams;
+	ARG_API drawAPI;
+	bool rotate90;
+	bool flipH;
+	bool flipV;
+	int32_t gViewport[4];
+	float projection[16];
+	float gProjection[16];
+	float gView[16];
+	bool gModelLoaded[10];
+	float gModelPoses[10][16];
+	bool gModelVisbilities[10];
+
+
+
+
+
+	struct marker {
+	    const char *name;
+	    float height;
+	};
+	const char *vconf;
+	const char *cpara;
+	struct marker markers[2];
+	static const int markerCount = (sizeof(markers)/sizeof(markers[0]));
+	int markerIDs[markerCount];
+	int markerModelIDs[markerCount];
+	int drawLoadModel(const char *path);
+	void drawSetCamera(float projection[16], float view[16]);
+	void drawSetViewport(int32_t viewport[4]);
+	void drawSetup(ARG_API drawAPI_in, bool rotate90_in, bool flipH_in, bool flipV_in);
 public:
-	WrapperAG();
+	ARController* arController;
+	WrapperAG(char *vconft,char *cpara);
 	virtual ~WrapperAG();
+	bool InicializarController();
+	void ProcesarFrameUpdated(int contextWidth, int contextHeight, int32_t* viewport);
 };
 
 #endif /* WRAPPERCV_H_ */

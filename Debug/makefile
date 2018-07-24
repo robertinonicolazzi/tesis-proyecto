@@ -14,9 +14,11 @@ RM := rm -rf
 -include resources/objects/nanosuit/subdir.mk
 -include resources/objects/cyborg/subdir.mk
 -include resources/court/subdir.mk
+-include resources/cancha/subdir.mk
 -include resources/subdir.mk
 -include include/glm/detail/subdir.mk
 -include include/glad/subdir.mk
+-include include/Texture/subdir.mk
 -include include/Shader/subdir.mk
 -include include/Entity/subdir.mk
 -include include/subdir.mk
@@ -55,7 +57,7 @@ all: 00_Tesis
 00_Tesis: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross G++ Linker'
-	g++  -o "00_Tesis" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L/usr/lib/x86_64-linux-gnu -L/media/rober/DatosLinux/00-ComputerVision/01-artoolkitx/Source/depends/linux/lib/ -o "00_Tesis" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
